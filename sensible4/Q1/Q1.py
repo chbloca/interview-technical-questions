@@ -37,21 +37,26 @@ class MovingTotal:
         (bool) If MovingTotal contains the total
         """
           
-        print(self.list)
         concatenateElements = []
+
+        # You can use the + operator to combine two arrays:
+
+        # listone = [1, 2, 3]
+        # listtwo = [4, 5, 6]
+
+        # joinedlist = listone + listtwo
+
+        # >>> joinedlist
+        # [1, 2, 3, 4, 5, 6]
         
         for array in self.list:
             concatenateElements += array
-            
-        print(concatenateElements)
-        
+                    
         lastThreeSum = concatenateElements[len(concatenateElements) - 1] + \
                        concatenateElements[len(concatenateElements) - 2] + \
                        concatenateElements[len(concatenateElements) - 3]
                        
-        print(lastThreeSum)
         return lastThreeSum == total
-        
     
 if __name__ == "__main__":
     movingtotal = MovingTotal()
