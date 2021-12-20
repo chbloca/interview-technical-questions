@@ -1,0 +1,175 @@
+<?xml version="1.0" ?>
+<robot name="igt_one" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find igt_one_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find igt_one_description)/urdf/igt_one.trans" />
+
+<xacro:include filename="$(find igt_one_description)/gazebo/igt_one_materials.gazebo" />
+<xacro:include filename="$(find igt_one_description)/gazebo/igt_one_physics.gazebo" />
+<xacro:include filename="$(find igt_one_description)/gazebo/igt_one_plugins.gazebo" />
+
+<xacro:include filename="$(find realsense)/urdf/realsense.urdf.xacro" />
+
+<link name="base_link">
+  <inertial>
+    <origin rpy="0 0 0" xyz="-0.004974483575323383 -0.0035758177738972564 0.18631312686595136"/>
+    <mass value="84.09101298868066"/>
+    <inertia ixx="2.876599" ixy="0.017607" ixz="0.13258" iyy="3.744371" iyz="0.010085" izz="5.482298"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <geometry>
+      <mesh filename="package://igt_one_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <geometry>
+      <mesh filename="package://igt_one_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="right_wheel">
+  <inertial>
+    <origin rpy="0 0 0" xyz="-1.0929629468137135e-09 -0.03010151532983879 4.1112970389223236e-09"/>
+    <mass value="5.898129011485211"/>
+    <inertia ixx="0.009626" ixy="0.0" ixz="3e-06" iyy="0.017338" iyz="0.0" izz="0.009622"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.0 0.214022 -0.07811"/>
+    <geometry>
+      <mesh filename="package://igt_one_description/meshes/right_wheel.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.0 0.214022 -0.07811"/>
+    <geometry>
+      <mesh filename="package://igt_one_description/meshes/right_wheel.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="left_wheel">
+  <inertial>
+    <origin rpy="0 0 0" xyz="2.5995732144679098e-09 0.030101514738641783 1.0489695376203478e-08"/>
+    <mass value="5.898130246494912"/>
+    <inertia ixx="0.009626" ixy="0.0" ixz="3e-06" iyy="0.017338" iyz="0.0" izz="0.009622"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.0 -0.214022 -0.07811"/>
+    <geometry>
+      <mesh filename="package://igt_one_description/meshes/left_wheel.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.0 -0.214022 -0.07811"/>
+    <geometry>
+      <mesh filename="package://igt_one_description/meshes/left_wheel.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="lidar">
+  <inertial>
+    <origin rpy="0 0 0" xyz="7.078254841363929e-06 -5.464739684171491e-06 -0.005199589249268707"/>
+    <mass value="0.4698523118913531"/>
+    <inertia ixx="0.000216" ixy="-0.0" ixz="0.0" iyy="0.000216" iyz="-0.0" izz="0.000424"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.278738 -3e-06 -0.044475"/>
+    <geometry>
+      <mesh filename="package://igt_one_description/meshes/lidar.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.278738 -3e-06 -0.044475"/>
+    <geometry>
+      <mesh filename="package://igt_one_description/meshes/lidar.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="caster_front">
+  <inertial>
+    <origin rpy="0 0 0" xyz="4.318377576639776e-07 1.367821372708327e-07 -0.005984710300216307"/>
+    <mass value="0.13434571750941451"/>
+    <inertia ixx="1.6e-05" ixy="-0.0" ixz="-0.0" iyy="1.6e-05" iyz="0.0" izz="2.7e-05"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.278737 -0.0 -0.01675"/>
+    <geometry>
+      <mesh filename="package://igt_one_description/meshes/caster_front.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.278737 -0.0 -0.01675"/>
+    <geometry>
+      <mesh filename="package://igt_one_description/meshes/caster_front.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="caster_back">
+  <inertial>
+    <origin rpy="0 0 0" xyz="1.4002657200418156e-08 -5.964100236044117e-16 -0.022599202626641616"/>
+    <mass value="0.6846135803256423"/>
+    <inertia ixx="0.000223" ixy="0.0" ixz="-0.0" iyy="0.000223" iyz="-0.0" izz="0.000198"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="0.279114 0.0 -0.05275"/>
+    <geometry>
+      <mesh filename="package://igt_one_description/meshes/caster_back.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0.279114 0.0 -0.05275"/>
+    <geometry>
+      <mesh filename="package://igt_one_description/meshes/caster_back.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<realsense parent="base_link">
+  <origin xyz="0.34 0 0.262" rpy="0 0 0"/> 
+</realsense>
+
+<joint name="right_motor" type="continuous">
+  <origin rpy="0 0 0" xyz="0.0 -0.214022 0.07811"/>
+  <parent link="base_link"/>
+  <child link="right_wheel"/>
+  <axis xyz="-0.0 0.01 -0.0"/>
+</joint>
+
+<joint name="left_motor" type="continuous">
+  <origin rpy="0 0 0" xyz="0.0 0.214022 0.07811"/>
+  <parent link="base_link"/>
+  <child link="left_wheel"/>
+  <axis xyz="-0.0 0.01 -0.0"/>
+</joint>
+
+<joint name="Rigid3" type="fixed">
+  <origin rpy="0 0 0" xyz="0.278738 3e-06 0.044475"/>
+  <parent link="base_link"/>
+  <child link="lidar"/>
+</joint>
+
+<joint name="Rigid4" type="fixed">
+  <origin rpy="0 0 0" xyz="0.278737 0.0 0.01675"/>
+  <parent link="base_link"/>
+  <child link="caster_front"/>
+</joint>
+
+<joint name="Rigid5" type="fixed">
+  <origin rpy="0 0 0" xyz="-0.279114 0.0 0.05275"/>
+  <parent link="base_link"/>
+  <child link="caster_back"/>
+</joint>
+
+</robot>

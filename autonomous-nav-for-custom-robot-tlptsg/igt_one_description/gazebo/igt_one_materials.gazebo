@@ -1,0 +1,32 @@
+<?xml version="1.0" ?>
+<robot name="igt_one" xmlns:xacro="http://www.ros.org/wiki/xacro" >
+
+<xacro:property name="body_color" value="Gazebo/Silver" />
+<xacro:property name="dark_grey" value="Gazebo/DarkGrey" />
+<xacro:property name="black" value="Gazebo/Black" />
+
+<gazebo reference="base_link">
+  <material>${body_color}</material>
+</gazebo>
+
+<gazebo reference="right_wheel">
+  <material>${dark_grey}</material>
+</gazebo>
+
+<gazebo reference="left_wheel">
+  <material>${dark_grey}</material>
+</gazebo>
+
+<gazebo reference="lidar">
+  <material>${black}</material>
+</gazebo>
+
+<gazebo reference="caster_front">
+  <material>${dark_grey}</material>
+</gazebo>
+
+<gazebo reference="caster_back">
+  <material>${dark_grey}</material>
+</gazebo>
+
+</robot>
