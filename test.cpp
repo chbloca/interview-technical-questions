@@ -1,17 +1,47 @@
 #include <iostream>
 #include <vector>
-#include <string>
+#include <algorithm>
 
-using namespace std;
+using std::vector;
+using std::cout;
+using std::endl;
 
-int main()
+vector<int> findUniqueNumbers(vector<int> values)
 {
-    cout << "hi";
-    vector<string> msg {"Hello", "C++", "World", "from", "VS Code", "and the C++ extension!"};
+    vector<int> uniqueValues;
 
-    for (const string& word : msg)
+    vector<int>::iterator begin = values.begin();
+    vector<int>::iterator end = values.end();
+    vector<int>::iterator current;
+
+    for(current = begin ; current != end ; current++)
     {
-        cout << word << " ";
+        int val = *current;
+        bool foundBefore = false;
+        bool foundAfter = false;
+        if (std::find(begin, current, val) != current)
+        {
+            foundBefore = true;
+        }
+        else if (std::find(current + 1, end, val) != end)
+        {
+            foundAfter = true;
+        }
+
+        if(!foundBefore && !foundAfter)
+            uniqueValues.push_back(val);
     }
-    cout << endl;
+    return uniqueValues;
+}
+
+int main(int argc, const char * argv[]) {
+    // insert code here...
+    cout << "Hi start" << endl;
+    std::vector<int> numbers = {1, 2, 3, 1, 2, 5, 4, 6};
+    vector<int> result = findUniqueNumbers(numbers);
+    for(int i = 0; i < result.size(); i++)
+        cout << result[i] << endl;
+    cout << "hi end" << endl;
+    
+    return 0;
 }
