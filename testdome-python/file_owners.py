@@ -8,7 +8,15 @@ function should return {'Randy': ['Input.txt', 'Output.txt'], 'Stan': ['Code.py'
 """
 
 def group_by_owners(files):
-    return None
+    files_by_author = {}
+    
+    for file, author in files.items():
+        if author in files_by_author:
+            files_by_author[author].append(file)
+        else:
+            files_by_author[author] = [file]
+
+    return files_by_author
 
 if __name__ == "__main__":    
     files = {
