@@ -9,6 +9,8 @@ For example, find_roots(2, 10, 8) should return (-1, -4) or (-4, -1) as the root
 """
 
 def find_roots(a, b, c):
-    return None
+    root_1 = (- b + (b ** 2  - 4 * a * c) ** 0.5) / (2 * a)
+    root_2 = (- b - (b ** 2  - 4 * a * c) ** 0.5) / (2 * a)
+    return (root_1, root_2)
 
 print(find_roots(2, 10, 8));
