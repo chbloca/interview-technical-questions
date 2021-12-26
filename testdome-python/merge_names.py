@@ -8,7 +8,13 @@ a list containing Ava, Emma, Olivia, and Sophia in any order.
 """
 
 def unique_names(names1, names2):
-    return None
+    unique_names_list = names1
+    unique_names_list.extend(names2)
+
+    unique_names_set = set(unique_names_list)
+    unique_names_list = list(unique_names_set)
+
+    return unique_names_list
 
 if __name__ == "__main__":
     names1 = ["Ava", "Emma", "Olivia"]

@@ -13,7 +13,12 @@ class IceCreamMachine:
         self.toppings = toppings
         
     def scoops(self):
-        pass
+        combinations = []
+        for ingredient in self.ingredients:
+            for topping in self.toppings:
+                combinations.append([ingredient, topping])
+
+        return combinations
 
 if __name__ == "__main__":
     machine = IceCreamMachine(["vanilla", "chocolate"], ["chocolate sauce"])
