@@ -16,7 +16,14 @@ def find_two_sum(numbers, target_sum):
     :param target_sum: (int) The required target sum.
     :returns: (a tuple of 2 ints) The indices of the two elements whose sum is equal to target_sum
     """
-    return None
 
+    results = []
+
+    for i in range(len(numbers)) :
+        for j in range(len(numbers)) :
+            if ((numbers[i] != numbers[j]) and (numbers[i] + numbers[j] == target_sum)):
+                results.append((i, j))
+    return results
+                
 if __name__ == "__main__":
     print(find_two_sum([3, 1, 5, 7, 5, 9], 10))
